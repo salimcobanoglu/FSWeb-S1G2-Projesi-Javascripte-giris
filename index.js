@@ -21,7 +21,7 @@ Aşağıdakileri yapın:
 */
 
 
-const surucuYasi = 21;
+let surucuYasi = 21;
 
 if (surucuYasi >18) {
   console.log('True!')   
@@ -67,8 +67,9 @@ Aşağıdakileri yapın:
 */
 
 
-var bubirstring = "1999";
-bubirstring == 1999;
+const stringSayi = "1999";
+const numberSayi = Number(stringSayi);
+console.log(stringSayi);
 
 
 
@@ -105,7 +106,8 @@ function kopeginYasi(yil){
   return yil * 7
 }
 
-
+console.log(kopeginYasi(5))
+console.log("test")
 
 /* Görev 3 */
 /*
@@ -121,39 +123,27 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
 
-let oyuncu = ("Taş" || "Kağıt" || "Makas")
-let bilgisayar = ("Taş" || "Kağıt" || "Makas")
-
 function oyun(oyuncu, bilgisayar){
 
-  if (oyun("Taş","Taş")) {
-  console.log ("Berabere")
+  switch(oyuncu) {
+    case "Taş":
+      return bilgisayar === "Makas" ?"Kazandın" 
+      : bilgisayar === "Kağıt" ?"Kaybettin"
+      : "Beraberlik";
 
-} else if (oyun("Kağıt",'Kağıt')) {
-  console.log ("Berabere")
-} 
-else if (oyun("Makas","Makas")) {
-  console.log ("Berabere")
+      case "Kağıt":
+        return bilgisayar === "Makas" ?"Kaybettin" 
+        : bilgisayar === "Kağıt" ?"Beraberlik"
+        : "Kazandın";
 
-} else if (oyun("Taş","Kağıt")) {
-  console.log ("Kaybettin")
+        case "Makas":
+          return bilgisayar === "Makas" ?"Beraberlik" 
+          : bilgisayar === "Kağıt" ?"Kazandın"
+          : "Kaybettin";
 
-} else if (oyun("Taş","Makas")) {
-  console.log ("Kazandın!")
 
-} else if (oyun("Kağıt","Taş")) {
-  console.log ("Kazandın!")
-
-} else if (oyun("Kağıt","Makas")) {
-  console.log ("Kaybettin")
-} 
-else if (oyun("Makas","Taş")) {
-  console.log ("Kaybettin")
-
-} else if (oyun("Makas","Kağıt")) {
-  console.log ("Kazandın!")
-
-}} 
+  }
+}
 
 
 // Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
